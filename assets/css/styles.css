@@ -81,7 +81,7 @@ a:hover {
 }
 
 .navbar-brand img.logo {
-  height: 40px;
+  height: 100px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -557,7 +557,7 @@ a:hover {
 .social-icons a {
   color: white;
   font-size: 18px;
-  margin: 0 10px;
+  margin: 0 8px;
   transition: 0.3s;
 }
 
@@ -572,4 +572,18 @@ a:hover {
 
 .glass-footer a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .text-md-center {
+      text-align: center !important;
+  }
+
+  .text-md-end {
+      text-align: center !important;
+  }
+
+  .social-icons {
+      justify-content: center !important;
+  }
 }
