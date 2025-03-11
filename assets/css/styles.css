@@ -544,3 +544,32 @@ a:hover {
   }
 }
 
+.glass-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Transparent effect */
+  backdrop-filter: blur(10px); /* Glassmorphic effect */
+  padding: 10px 0;
+  color: white;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 18px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  opacity: 0.7;
+}
+
+.glass-footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.glass-footer a:hover {
+  text-decoration: underline;
+}
