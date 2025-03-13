@@ -418,6 +418,18 @@ a:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.sub-page-header {
+  background-color: var(--secondary-color);
+  background-image: url('./assets/images/carousel-2.JPG'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the section */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  padding: 8rem 0 4rem;
+  text-align: center;
+  position: relative;
+  color: #fff; /* Optional: change text color to white to contrast with the background */
+}
+
 /* About Section Styles */
 .about-section {
   padding: 5rem 0;
