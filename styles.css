@@ -166,9 +166,20 @@ a:hover {
   opacity: 1;
 }
 
+
+/* When the navbar is scrolled, change background color to white */
+.navbar.scrolled {
+  background-color: white !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Adjust text color for scrolled navbar */
 .navbar.scrolled .nav-link {
   color: purple !important;
 }
+
 
 
 /* Mobile Navbar */
