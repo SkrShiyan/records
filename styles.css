@@ -132,6 +132,127 @@ a:hover {
   font-weight: 300;
 }
 
+/* cursor animation */
+.cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #720cbe;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+  box-shadow: 0 0 10px rgba(114, 12, 190, 0.5);
+}
+
+.cursor-trail {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ff6d00;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.08s ease-out;
+  opacity: 0.6;
+}
+
+.music-note {
+  position: absolute;
+  font-size: 24px;
+  pointer-events: none;
+  animation: float 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  opacity: 0.9;
+  z-index: 100;
+}
+
+.music-note.purple {
+  color: #720cbe;
+  text-shadow: 0 0 5px rgba(114, 12, 190, 0.3);
+}
+
+.music-note.orange {
+  color: #ff6d00;
+  text-shadow: 0 0 5px rgba(255, 109, 0, 0.3);
+}
+
+.wave {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 90;
+  animation: wave 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.wave.purple {
+  border: 2px solid #720cbe;
+}
+
+.wave.orange {
+  border: 2px solid #ff6d00;
+}
+
+@keyframes float {
+  0% {
+      transform: translate(0, 0) rotate(0deg) scale(0.5);
+      opacity: 0.9;
+  }
+  20% {
+      opacity: 1;
+  }
+  100% {
+      transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1.2);
+      opacity: 0;
+  }
+}
+
+@keyframes wave {
+  0% {
+      width: 0px;
+      height: 0px;
+      opacity: 0.7;
+  }
+  50% {
+      opacity: 0.5;
+  }
+  100% {
+      width: 200px;
+      height: 200px;
+      opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .cursor {
+      width: 15px;
+      height: 15px;
+  }
+  
+  .cursor-trail {
+      width: 30px;
+      height: 30px;
+  }
+  
+  .music-note {
+      font-size: 20px;
+  }
+  
+  @keyframes wave {
+      100% {
+          width: 150px;
+          height: 150px;
+      }
+  }
+}
+
 
 /* Navbar Styles */
 

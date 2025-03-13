@@ -217,3 +217,223 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// cursor animation
+document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.querySelector('.cursor');
+  const cursorTrail = document.querySelector('.cursor-trail');
+  
+  let mouseX = 0;
+  let mouseY = 0;
+  let trailX = 0;
+  let trailY = 0;
+  let isTouch = false;
+  let lastX = 0;
+  let lastY = 0;
+  let lastNoteTime = 0;
+  let isMoving = false;
+  
+  // Music notes array - only well-supported symbols to avoid rendering boxes
+  const musicNotes = ['♪', '♫', '♬', '♩', '♭', '♮', '♯'];
+  
+  // Check if device supports touch
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  
+  // Mouse move event with controlled note creation
+  document.addEventListener('mousemove', (e) => {
+      if (!isTouch) {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          
+          // Calculate distance moved
+          const distance = Math.sqrt(
+              Math.pow(mouseX - lastX, 2) + 
+              Math.pow(mouseY - lastY, 2)
+          );
+          
+          const now = Date.now();
+          
+          // Only create notes when moving significantly and not too frequently
+          if (distance > 8 && now - lastNoteTime > 60) {
+              isMoving = true;
+              lastX = mouseX;
+              lastY = mouseY;
+              lastNoteTime = now;
+              
+              // Create 1-2 notes based on distance
+              const noteCount = Math.min(Math.floor(distance / 20) + 1, 2);
+              for (let i = 0; i < noteCount; i++) {
+                  // Add slight offset for multiple notes
+                  const offsetX = mouseX + (Math.random() - 0.5) * 15;
+                  const offsetY = mouseY + (Math.random() - 0.5) * 15;
+                  createMusicNote(offsetX, offsetY);
+              }
+          }
+          
+          // Reset moving flag if stopped
+          if (distance < 2 && isMoving) {
+              setTimeout(() => {
+                  isMoving = false;
+              }, 100);
+          }
+      }
+  });
+  
+  // Touch events for mobile with optimized note creation
+  document.addEventListener('touchstart', () => {
+      isTouch = true;
+      cursor.style.width = '30px';
+      cursor.style.height = '30px';
+  }, { passive: true });
+  
+  document.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+          isTouch = true;
+          mouseX = e.touches[0].clientX;
+          mouseY = e.touches[0].clientY;
+          
+          // Calculate distance moved
+          const distance = Math.sqrt(
+              Math.pow(mouseX - lastX, 2) + 
+              Math.pow(mouseY - lastY, 2)
+          );
+          
+          const now = Date.now();
+          
+          // Create notes based on movement - less frequently on mobile
+          if (distance > 10 && now - lastNoteTime > 80) {
+              lastX = mouseX;
+              lastY = mouseY;
+              lastNoteTime = now;
+              
+              // Create a single note for better mobile performance
+              createMusicNote(mouseX, mouseY);
+          }
+      }
+  }, { passive: true });
+  
+  document.addEventListener('touchend', () => {
+      setTimeout(() => {
+          isTouch = false;
+          cursor.style.width = '20px';
+          cursor.style.height = '20px';
+      }, 100);
+      
+      // Create a wave effect on touch end
+      createWave(mouseX, mouseY);
+      
+      // Create a small burst of notes
+      createNoteBurst(mouseX, mouseY, 4);
+  }, { passive: true });
+  
+  // Click events with note burst
+  document.addEventListener('mousedown', () => {
+      cursor.style.width = '15px';
+      cursor.style.height = '15px';
+      createWave(mouseX, mouseY);
+  });
+  
+  document.addEventListener('mouseup', () => {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+      
+      // Create a small burst of notes on click release
+      createNoteBurst(mouseX, mouseY, 3);
+  });
+  
+  // Create music note element
+  function createMusicNote(x, y) {
+      const note = document.createElement('div');
+      note.className = 'music-note';
+      
+      // Randomly choose between purple and orange
+      if (Math.random() > 0.5) {
+          note.classList.add('purple');
+      } else {
+          note.classList.add('orange');
+      }
+      
+      // Random note
+      note.textContent = musicNotes[Math.floor(Math.random() * musicNotes.length)];
+      
+      // Random direction and rotation with smoother values
+      const xMove = (Math.random() - 0.5) * 100;
+      const yMove = -Math.random() * 100 - 20; // Mostly upward
+      const rotation = (Math.random() - 0.5) * 180;
+      
+      note.style.setProperty('--x', `${xMove}px`);
+      note.style.setProperty('--y', `${yMove}px`);
+      note.style.setProperty('--r', `${rotation}deg`);
+      
+      note.style.left = `${x}px`;
+      note.style.top = `${y}px`;
+      
+      document.body.appendChild(note);
+      
+      // Remove note after animation completes
+      setTimeout(() => {
+          if (note.parentNode) {
+              note.remove();
+          }
+      }, 2000);
+  }
+  
+  // Create a burst of notes (for clicks and touch end)
+  function createNoteBurst(x, y, count) {
+      for (let i = 0; i < count; i++) {
+          setTimeout(() => {
+              const offsetX = x + (Math.random() - 0.5) * 30;
+              const offsetY = y + (Math.random() - 0.5) * 30;
+              createMusicNote(offsetX, offsetY);
+          }, i * 70); // Stagger the creation for a more natural effect
+      }
+  }
+  
+  // Create wave effect
+  function createWave(x, y) {
+      const wave = document.createElement('div');
+      wave.className = 'wave';
+      
+      // Randomly choose between purple and orange
+      if (Math.random() > 0.5) {
+          wave.classList.add('purple');
+      } else {
+          wave.classList.add('orange');
+      }
+      
+      wave.style.left = `${x}px`;
+      wave.style.top = `${y}px`;
+      
+      document.body.appendChild(wave);
+      
+      // Remove wave after animation completes
+      setTimeout(() => {
+          if (wave.parentNode) {
+              wave.remove();
+          }
+      }, 1800);
+  }
+  
+  // Animation loop for smooth cursor movement using RAF
+  function animateCursor() {
+      // Smooth trail effect with easing
+      trailX += (mouseX - trailX) * 0.25;
+      trailY += (mouseY - trailY) * 0.25;
+      
+      cursor.style.left = `${mouseX}px`;
+      cursor.style.top = `${mouseY}px`;
+      
+      cursorTrail.style.left = `${trailX}px`;
+      cursorTrail.style.top = `${trailY}px`;
+      
+      requestAnimationFrame(animateCursor);
+  }
+  
+  // Start animation
+  animateCursor();
+  
+  // Initial position for mobile
+  if (isTouchDevice) {
+      mouseX = window.innerWidth / 2;
+      mouseY = window.innerHeight / 2;
+  }
+});
