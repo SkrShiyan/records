@@ -910,12 +910,13 @@ a:hover {
 }
 
 /* Footer Styles */
+/* Footer Styles */
 .glass-footer {
   background: rgba(1, 1, 1, 0.5); /* Reduced opacity */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: white;
-  padding: 2rem 0 0.5rem; /* Reduced padding */
+  padding: 1rem 0; /* Reduced padding */
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -924,8 +925,8 @@ a:hover {
 }
 
 .footer-logo {
-  height: 60px; /* Smaller logo */
-  margin-bottom: 0.5rem;
+  height: 50px; /* Smaller logo */
+  margin-bottom: 0.3rem;
 }
 
 .footer-links {
@@ -935,13 +936,13 @@ a:hover {
 }
 
 .footer-links li {
-  margin-bottom: 0.3rem; /* Reduced spacing */
+  margin-bottom: 0.2rem; /* Reduced spacing */
 }
 
 .footer-links a {
   color: #ddd;
   transition: var(--transition);
-  font-size: 0.9rem; /* Smaller font */
+  font-size: 0.8rem; /* Smaller font */
 }
 
 .footer-links a:hover {
@@ -950,38 +951,53 @@ a:hover {
 }
 
 .social-icons {
-  margin-top: 0.5rem;
+  margin-top: 0;
 }
 
 .social-icons a {
   display: inline-block;
-  width: 35px; /* Smaller icons */
-  height: 35px;
+  width: 30px; /* Smaller icons */
+  height: 30px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   text-align: center;
-  line-height: 35px;
-  margin-right: 0.5rem;
+  line-height: 30px;
+  margin-right: 0.4rem;
   color: white;
   transition: var(--transition);
+  font-size: 14px;
 }
 
 .social-icons a:hover {
   background-color: var(--primary-color);
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1rem;
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.9rem; /* Smaller font */
+  padding-top: 0.5rem;
+  font-size: 0.8rem; /* Smaller font */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* Main Content Padding for Fixed Footer */
-body {
-  padding-bottom: 200px; /* Reduced padding for smaller footer */
+.footer-bottom p {
+  margin: 0;
+}
+
+.design-by {
+  text-align: left;
+}
+
+.copyright {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.social-icons {
+  text-align: right;
 }
 
 /* Responsive Styles */
