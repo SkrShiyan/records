@@ -1,12 +1,3 @@
-/* 
-DreamSpace Records Website Styles
-Colors:
-- Light mint/off-white: #ebfof2
-- Orange: #f06c07
-- Black: #010101
-- Purple: #42376a
-*/
-
 /* Global Styles */
 :root {
   --primary-color: #f06c07;
@@ -909,7 +900,7 @@ a:hover {
   transform: translateY(-5px);
 }
 
-/* Footer Styles */
+
 /* Footer Styles */
 .glass-footer {
   background: rgba(1, 1, 1, 0.5); /* Reduced opacity */
@@ -1096,3 +1087,4 @@ a:hover {
     display: block;
   }
 }
+
