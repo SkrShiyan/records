@@ -9,7 +9,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: var(--light-color);
+  background-color: #ffffff;
   color: var(--dark-color);
   overflow-x: hidden;
 }
@@ -36,7 +36,7 @@ a:hover {
 .section-title {
   position: relative;
   font-size: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   color: var(--secondary-color);
   text-align: center;
 }
