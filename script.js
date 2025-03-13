@@ -199,3 +199,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".navbar");
+  const logo = document.querySelector(".navbar-brand img.logo");
+  const navLinks = document.querySelectorAll(".navbar-dark .navbar-nav .nav-link");
+
+  window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+          logo.src = "./assets/images/logo.png"; // Change to colored logo
+          navLinks.forEach(link => link.style.color = "purple");
+      } else {
+          navbar.classList.remove("scrolled");
+          logo.src = "./assets/images/wite.png"; // Change back to white logo
+          navLinks.forEach(link => link.style.color = "white");
+      }
+  });
+});
+
