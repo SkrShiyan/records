@@ -1286,4 +1286,190 @@ a:hover {
   }
 }
 
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.nw-contact {
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 80px 0;
+  background: url('./assets/images/bg-1.jpg') no-repeat center center/cover;
+  background-attachment: fixed;
+  overflow: hidden; /* Prevent background from affecting layout */
+}
+
+.nw-contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px); /* Apply fixed blur effect */
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay to enhance visibility */
+  z-index: 1;
+  animation: none;
+}
+
+.nw-contact .container {
+  position: relative;
+  z-index: 2;
+}
+
+/*--------------------------------------------------------------
+# Contact Section - Section Title with Animated Sound Wave
+--------------------------------------------------------------*/
+.nw-section-title {
+  text-align: center;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.nw-section-title h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: white; /* Change text color to white */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+/* Sound Wave Animation */
+.nw-sound-wave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  height: 20px;
+}
+
+/* Individual Bars */
+.nw-sound-wave span {
+  display: inline-block;
+  width: 6px;
+  height: 10px;
+  background: #ffffff; /* Change sound wave color to white */
+  animation: waveMotion 1s infinite ease-in-out alternate;
+  border-radius: 3px;
+}
+
+/* Animation Timing for Each Bar */
+.nw-sound-wave span:nth-child(1) {
+  animation-delay: 0s;
+}
+.nw-sound-wave span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.nw-sound-wave span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.nw-sound-wave span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.nw-sound-wave span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+/* Keyframes for Wave Motion */
+@keyframes waveMotion {
+  0% {
+    height: 10px;
+    opacity: 0.8;
+  }
+  50% {
+    height: 20px;
+    opacity: 1;
+  }
+  100% {
+    height: 10px;
+    opacity: 0.8;
+  }
+}
+
+/* Subtitle Text */
+.nw-section-title p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8); /* Light white for the subtitle */
+  max-width: 600px;
+  margin: 10px auto 0;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+
+/* Contact Info */
+.nw-info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.nw-info-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.nw-info-item i {
+  color: white;
+  font-size: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.nw-info-item h3, 
+.nw-info-item p {
+  color: white;
+}
+
+/* Contact Form */
+.nw-php-email-form input[type=text],
+.nw-php-email-form input[type=email],
+.nw-php-email-form textarea {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.nw-php-email-form input::placeholder,
+.nw-php-email-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nw-php-email-form button[type=submit] {
+  color: white;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.nw-php-email-form button[type=submit]:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Fix for alignment using Flexbox */
+.nw-contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nw-contact .col-lg-4, .nw-contact .col-lg-8 {
+  flex: 1;
+  max-width: 100%;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .nw-contact .col-lg-4, .nw-contact .col-lg-8 {
+    max-width: 48%;
+  }
+}
 
