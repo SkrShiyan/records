@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// cursor animation
+// Cursor animation with scroll position fix
 document.addEventListener('DOMContentLoaded', () => {
   const cursor = document.querySelector('.cursor');
   const cursorTrail = document.querySelector('.cursor-trail');
@@ -241,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mouse move event with controlled note creation
   document.addEventListener('mousemove', (e) => {
       if (!isTouch) {
+          // Store mouse position relative to the viewport
           mouseX = e.clientX;
           mouseY = e.clientY;
           
@@ -364,6 +365,8 @@ document.addEventListener('DOMContentLoaded', () => {
       note.style.setProperty('--y', `${yMove}px`);
       note.style.setProperty('--r', `${rotation}deg`);
       
+      // Position relative to the viewport, not the document
+      note.style.position = 'fixed';
       note.style.left = `${x}px`;
       note.style.top = `${y}px`;
       
@@ -400,6 +403,8 @@ document.addEventListener('DOMContentLoaded', () => {
           wave.classList.add('orange');
       }
       
+      // Position relative to the viewport, not the document
+      wave.style.position = 'fixed';
       wave.style.left = `${x}px`;
       wave.style.top = `${y}px`;
       
