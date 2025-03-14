@@ -1400,76 +1400,110 @@ a:hover {
 
 /* Contact Info */
 .nw-info-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-bottom: 15px;
 }
 
 .nw-info-item:hover {
-  background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .nw-info-item i {
-  color: white;
-  font-size: 24px;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10px;
-  border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 50%;
 }
 
 .nw-info-item h3, 
 .nw-info-item p {
-  color: white;
+    color: white;
+    text-align: start;
+}
+
+/* Social Media Icons */
+.nw-social-icons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-icon {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 20px;
+    padding: 12px;
+    margin: 0 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
 }
 
 /* Contact Form */
+.nw-php-email-form {
+    display: flex;
+    flex-direction: column;
+}
+
 .nw-php-email-form input[type=text],
 .nw-php-email-form input[type=email],
 .nw-php-email-form textarea {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  font-size: 14px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+    width: 100%;
 }
 
 .nw-php-email-form input::placeholder,
 .nw-php-email-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.nw-php-email-form textarea {
+    resize: none;
 }
 
 .nw-php-email-form button[type=submit] {
-  color: white;
-  background: rgba(255, 255, 255, 0.3);
-  padding: 12px 30px;
-  border-radius: 50px;
-  transition: 0.3s;
+    color: white;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 .nw-php-email-form button[type=submit]:hover {
-  background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.5);
 }
 
-/* Fix for alignment using Flexbox */
+/* Alignment & Responsiveness */
 .nw-contact .row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .nw-contact .col-lg-4, .nw-contact .col-lg-8 {
-  flex: 1;
-  max-width: 100%;
-  padding: 10px;
+    padding: 15px;
 }
 
 @media (min-width: 768px) {
-  .nw-contact .col-lg-4, .nw-contact .col-lg-8 {
-    max-width: 48%;
-  }
+    .nw-contact .col-lg-4, .nw-contact .col-lg-8 {
+        max-width: 48%;
+    }
 }
-
