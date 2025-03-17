@@ -606,7 +606,7 @@ a:hover {
 
 .sub-page-header {
   background-color: var(--secondary-color);
-  background-image: url('./assets/images/carousel-2.JPG'); /* Replace with your image path */
+  background-image: url('assets/images/carousel-2.jpg'); /* Replace with your image path */
   background-size: cover; /* Ensures the image covers the section */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -1507,3 +1507,5 @@ a:hover {
         max-width: 48%;
     }
 }
+
+
