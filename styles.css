@@ -606,7 +606,7 @@ a:hover {
 
 .sub-page-header {
   background-color: var(--secondary-color);
-  background-image: url('assets/images/carousel-2.jpg'); /* Replace with your image path */
+  background-image: url('assets/images/sub-bg.jpg'); /* Replace with your image path */
   background-size: cover; /* Ensures the image covers the section */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -618,13 +618,14 @@ a:hover {
 
 /* About Section Styles */
 .about-section {
-  padding: 5rem 0;
+  padding: 1rem 0;
 }
 
 .about-section p {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .about-section h3 {
@@ -645,6 +646,102 @@ a:hover {
 
 .about-image:hover img {
   transform: scale(1.05);
+}
+
+.nw-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 100px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.nw-card {
+  background: #3b0439;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 15px 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 300px; /* Fixed height for large screens */
+  max-width: 550px; /* Max width for large screens */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.nw-card-content {
+  text-align: center;
+  z-index: 1;
+  color: white;
+}
+
+.nw-card h2 {
+  font-size: 2em;
+  margin: 0;
+  padding: 5px 0;
+}
+
+.nw-card p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 10px 0;
+  text-align: justify;
+}
+
+.nw-card::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  background-image: linear-gradient(180deg, rgb(255, 255, 255), rgb(255, 255, 255));
+  height: 230%;
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nw-card::after {
+  content: '';
+  position: absolute;
+  background: #3b0439;
+  inset: 5px;
+  border-radius: 15px;
+}
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 768px) {
+  .nw-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px; /* Reduced padding on small screens */
+  }
+
+  .nw-card {
+    width: 100%; /* Full width on smaller screens */
+    max-width: none; /* No max width restriction */
+    height: auto; /* Allow the height to adjust automatically */
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  .nw-card h2 {
+    font-size: 1.5em; /* Smaller font size on small screens */
+  }
+
+  .nw-card p {
+    font-size: 0.9em; /* Smaller text size for better readability */
+  }
 }
 
 /* Achievements Section Styles */
@@ -1254,7 +1351,7 @@ a:hover {
   width: 200%;
   height: 200%;
   background: radial-gradient(circle, rgba(240, 108, 7, 0.05) 0%, transparent 50%);
-  animation: rotate 30s linear infinite;
+  /* animation: rotate 30s linear infinite; */
   z-index: -1;
 }
 
