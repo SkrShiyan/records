@@ -1828,21 +1828,23 @@ a:hover {
   flex-wrap: wrap;
 }
 
-.footer-bottom p {
-  margin: 0;
-}
+/* Centering elements for smaller screens */
+@media screen and (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
 
-.design-by {
-  text-align: left;
-}
+  .design-by,
+  .copyright,
+  .social-icons {
+    width: 100%;
+    margin-bottom: 0.3rem;
+  }
 
-.copyright {
-  text-align: center;
-  flex-grow: 1;
-}
-
-.social-icons {
-  text-align: right;
+  .social-icons a {
+    margin: 0 5px;
+  }
 }
 
 /* Responsive Styles */
@@ -1851,7 +1853,7 @@ a:hover {
     background-color: rgba(1, 1, 1, 0.9);
     padding: 1rem;
     border-radius: 0.5rem;
-  } */
+  }
 
   .slogan {
     font-size: 2rem;
