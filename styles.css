@@ -1592,12 +1592,16 @@ a:hover {
   padding: 20px 0; /* No padding on sides */
 }
 
-.container {
+.gal-container {
   display: flex;
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-right: 80px;
+  padding-left: 80px;
+  padding-bottom: 50px;
 }
 
 .card {
@@ -1622,7 +1626,7 @@ a:hover {
 
 .card:hover {
   flex: 2;
-  background-color: #b8b8b8;
+  background-color: #ffffff;
 }
 
 /* Responsive Design */
@@ -1902,6 +1906,12 @@ a:hover {
 .creative-bg {
   position: relative;
   overflow: hidden;
+}
+
+.creative-bg2 {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 50px;
 }
 
 .creative-bg::before {
