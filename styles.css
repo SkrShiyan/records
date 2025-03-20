@@ -249,6 +249,9 @@ a:hover {
   -webkit-backdrop-filter: blur(0px);
 }
 
+.navbar .container {
+  flex-direction: row;
+}
 .navbar.scrolled {
   background-color: rgba(1, 1, 1, 0.7);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -357,7 +360,14 @@ a:hover {
   color: purple !important;
 }
 
+/* Navbar toggler color change when scrolled */
+.navbar.scrolled .navbar-toggler {
+  border-color: purple;
+}
 
+.navbar.scrolled .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='purple' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 
 /* Mobile Navbar */
 @media (max-width: 991.98px) {
@@ -365,6 +375,9 @@ a:hover {
     background-color: rgba(1, 1, 1, 0.95);
     padding: 1rem;
     border-radius: 0.5rem;
+  }
+  .navbar .container{
+    flex-direction: row;
   }
 }
 
@@ -1574,8 +1587,9 @@ a:hover {
   transform: scale(1.05);
 }
 
+
 #nw-gallery {
-  padding: 20px 0 80px; /* No padding on sides */
+  padding: 20px 0; /* No padding on sides */
 }
 
 .container {
@@ -1583,6 +1597,7 @@ a:hover {
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .card {
@@ -1622,7 +1637,6 @@ a:hover {
       height: auto;
   }
 }
-
 
 
 /* Contact Section Styles */
